@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste seus conhecimentos!</title>
+    <link rel="stylesheet" href="questionario.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Questionário MENTAL-CARE</h1>
+            <h2>Avaliação do Bem-Estar Mental e Emocional!</h2>
+            <div class="Voltar">
+                <button onclick="window.location.href='../Tela-home/index.html'">Voltar</button>
+            </div>
+        </header>
+
+        <div id="quiz-container">
+            <div id="quiz"></div>
+            <template>
+                <div class="quiz-item">
+                    <h3></h3>
+                    <dl>
+                        <dt>
+                            <input type="radio" name="item" value="0">
+                            <span></span>
+                        </dt>
+                    </dl>
+                </div>
+            </template>
+            <button id="proxima">Próxima</button>
+            <button id="enviar" style="display:none;">Enviar</button>
+        </div>
+        <div id="resultado"></div>
+
+        <header>
+            <h5>Fontes:</h5>
+            <h6>https://www.piposaude.com.br/blog/questionario-de-saude-mental-no-trabalho</h6>
+        </header>
+    </main>
+
+    <script src="questionario.js"></script>
+</body>
+</html>

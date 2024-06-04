@@ -1,9 +1,7 @@
 
 const canvas = document.querySelector('canvas.webgl')
 
-/**
- * Loaders
- */
+
 const loadingBarElement = document.querySelector('.loading-bar')
 const bodyElement = document.querySelector('body')
 const loadingManager = new THREE.LoadingManager(
@@ -41,7 +39,7 @@ const gltfLoader = new THREE.GLTFLoader(loadingManager)
 
 
 
-// Scene
+
 const scene = new THREE.Scene()
 
 
@@ -71,9 +69,7 @@ const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial);
 scene.add(overlay)
 
 
-/**z
- * GLTF Model
- */
+
 let brain = null
 
 gltfLoader.load(
@@ -85,7 +81,7 @@ gltfLoader.load(
 
         const radius = 1.2
 
-        brain.position.x = 1.3
+        brain.position.x = 1.2
      
         
 
@@ -112,9 +108,7 @@ gltfLoader.load(
     }
 )
 
-/**
- * Light
- */
+
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.8)
 scene.add(ambientLight)
 
@@ -124,24 +118,20 @@ directionalLight.position.set(1, 2, 0)
 directionalLight.castShadow = true
 scene.add(directionalLight)
 
-/**
- * Sizes
- */
+
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
 }
 
-/**
- * Scroll
- */
+
 let scrollY = window.scrollY
 let currentSection = 0
 
 const transformbrain = [{
         rotationZ: 0.,
         rotationY: 1.5,
-        positionX: 1.4
+        positionX: 1.2
         
     },
     {
@@ -195,18 +185,14 @@ window.addEventListener('scroll', () => {
     }
 })
 
-/**
- * Camera
- */
+
 // Base camera
 const camera = new THREE.PerspectiveCamera(35, sizes.width / sizes.height, 0.1, 1000)
 camera.position.z = 5
 
 scene.add(camera)
 
-/**
- * Renderer
- */
+
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     antialias: true,
@@ -217,9 +203,8 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-/**
- * Animate
- */
+
+
 const clock = new THREE.Clock()
 let lastElapsedTime = 0
 
@@ -233,18 +218,19 @@ const tick = () => {
       
     }
 
-    // Render
+    
     renderer.render(scene, camera)
 
-    // Call tick again on the next frame
+   
     window.requestAnimationFrame(tick)
 }
 
 tick()
 
-/**
- * On Reload
- */
+
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 }
+
+
+
